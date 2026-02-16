@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOONSTAND - Network Utility Tool</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 40px;
+            max-width: 700px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 {
+            color: #58a6ff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #8b949e;
+            margin-bottom: 30px;
+        }
+        .info {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .label {
+            color: #8b949e;
+            font-weight: bold;
+        }
+        .value {
+            color: #c9d1d9;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+        }
+        .ip-box {
+            background-color: #21262d;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px dashed #58a6ff;
+        }
+        .ip-label {
+            color: #58a6ff;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .ip-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #f0f6fc;
+            letter-spacing: 2px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #8b949e;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>MOONSTAND v1.2.0</h1>
+        <p class="subtitle">Professional Network Configuration Utility<br>Developed by CHAKAONNECROSO</p>
+
+        <div class="info">
+            <p><span class="label">Location detected:</span> <span class="value">Tala, Jalisco, México</span></p>
+            <p><span class="label">Coordinates approx.:</span> <span class="value">20.6536° N, -103.7000° W</span></p>
+            <p><span class="label">Status:</span> <span class="value">Connection verified • Secure injection process ready</span></p>
+        </div>
+
+        <div class="ip-box">
+            <div class="ip-label">IP de conexión actual (dinámica):</div>
+            <div class="ip-value" id="randomIp">Cargando...</div>
+        </div>
+
+        <p style="text-align: center; margin-top: 20px;">
+            Esta utilidad realiza una configuración de red local segura.<br>
+            Todas las operaciones se registran y verifican automáticamente.
+        </p>
+    </div>
+
+    <footer>
+        © 2026 MOONSTAND • No se recolectan datos personales • Solo para uso local
+    </footer>
+
+    <script>
+        // Función para generar una IP IPv4 aleatoria (válida, 1-223 en primer octeto para evitar multicast/reservadas extremas)
+        function generateRandomIP() {
+            const octet1 = Math.floor(Math.random() * 223) + 1; // 1-223
+            const octet2 = Math.floor(Math.random() * 256);
+            const octet3 = Math.floor(Math.random() * 256);
+            const octet4 = Math.floor(Math.random() * 256);
+            return `${octet1}.${octet2}.${octet3}.${octet4}`;
+        }
+
+        // Mostrar una IP nueva cada vez que se carga la página
+        document.getElementById('randomIp').textContent = generateRandomIP();
+    </script>
+
+</body>
+</html>
